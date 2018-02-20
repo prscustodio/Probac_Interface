@@ -13,6 +13,7 @@ if(Serial.available())
 {
   char dado = Serial.read();
   int cont=0;
+ // Serial.println(dado);
   
   if (dado == ('f'))
   {
@@ -24,7 +25,7 @@ if(Serial.available())
     delay(500);
     }
     cont=0;
-    Serial.write(" ");
+    //Serial.write(" ");
     Serial.println("ra");
     
   }
@@ -53,6 +54,6 @@ if(Serial.available())
     Serial.println("rc");
   }
   
-   Serial.println(dado);
+   
 }
 }
