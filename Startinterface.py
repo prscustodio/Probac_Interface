@@ -5,10 +5,16 @@ from Interface import Ui_Tela
 import serial
 import RPi.GPIO as GPIO
 import time
+import I2C_LCD_driver
+import socket
+import fcntl
+import struct
 
 ra='ra'
 rb='rb'
 rc='rc'
+
+lcdi2c = I2C_LCD_driver.lcd()
 
 GPIO.setmode(GPIO.BCM)
 #GPIO.setwarnigs(False)
@@ -48,7 +54,9 @@ class StartQT4(QtGui.QMainWindow):
 
 		def file_dialog_varredura(self):
 			fd = QtGui.QFileDialog(self)
-			ser.write('v')
+			dadoVarredura='v'
+			ser.write(dadoVarredura)
+			print dadoVarredura
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colR.name())
@@ -63,13 +71,17 @@ class StartQT4(QtGui.QMainWindow):
 				self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colG.name())
 				texto_varredura=file_varredura.read()
 				self.ui.editor_window.setText(texto_varredura)
+				lcdi2c.lcd_clear()
+				lcdi2c.lcd_display_string(texto_varredura, 1,1)
 				GPIO.output(18,GPIO.LOW)
 				time.sleep(1)	
 				GPIO.output(18,GPIO.HIGH)	
 		
 		def file_dialog_concentrado(self):
 			fd = QtGui.QFileDialog(self)
-			ser.write('c')
+			dadoConcentrado = 'c'
+			ser.write(dadoConcentrado)
+			print dadoConcentrado
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colR.name())
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
@@ -84,13 +96,17 @@ class StartQT4(QtGui.QMainWindow):
 				self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 				texto_concentrado=file_concentrado.read()
 				self.ui.editor_window.setText(texto_concentrado)
+				lcdi2c.lcd_clear()
+				lcdi2c.lcd_display_string(texto_concentrado, 1,1)
 				GPIO.output(18,GPIO.LOW)
 				time.sleep(1)
 				GPIO.output(18,GPIO.HIGH)
 
 		def file_dialog_filete(self):
 			fd = QtGui.QFileDialog(self)
-			ser.write('f')
+			dadoFilete='f'
+			ser.write(dadoFilete)
+			print(dadoFilete)
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colR.name())
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
@@ -107,6 +123,8 @@ class StartQT4(QtGui.QMainWindow):
 				texto_filete=file_filete.readline()
 				print texto_filete
 				self.ui.editor_window.setText(texto_filete) 
+				lcdi2c.lcd_clear()
+				lcdi2c.lcd_display_string(texto_filete, 1,1)
 				GPIO.output(18,GPIO.LOW)
 				time.sleep(1)
 				GPIO.output(18,GPIO.HIGH)
