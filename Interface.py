@@ -36,16 +36,21 @@ class Ui_Tela(object):
 	
 
         Tela.setObjectName(_fromUtf8("Tela"))
-        Tela.resize(766, 628)
+        Tela.resize(800, 650)
 
         self.centralwidget = QtGui.QWidget(Tela)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         
 	self.horizontalLayoutWidget = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 40, 141, 51))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 110, 141, 51))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+
+	pic = QtGui.QLabel(Tela)
+	pic.setGeometry(270, 10, 300, 100)
+	pic.setPixmap(QtGui.QPixmap("/home/pi/Desktop/Probac_Interface/LogoProbac.png"))
+	#pic.setScaledContents(100,100)
 
         self.filete_button = QtGui.QPushButton(self.horizontalLayoutWidget)
         self.filete_button.setEnabled(True)
@@ -53,7 +58,7 @@ class Ui_Tela(object):
         self.horizontalLayout.addWidget(self.filete_button)
 
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(250, 40, 161, 51))
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(250, 110, 161, 51))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
         self.horizontalLayout_2 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
@@ -62,7 +67,7 @@ class Ui_Tela(object):
         self.horizontalLayout_2.addWidget(self.concentrado_button)
 
         self.horizontalLayoutWidget_3 = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(540, 40, 141, 51))
+        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(540, 110, 141, 51))
         self.horizontalLayoutWidget_3.setObjectName(_fromUtf8("horizontalLayoutWidget_3"))
         self.horizontalLayout_3 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_3)
         self.horizontalLayout_3.setObjectName(_fromUtf8("horizontalLayout_3"))
@@ -70,8 +75,17 @@ class Ui_Tela(object):
         self.varredura_button.setObjectName(_fromUtf8("varredura_button"))
         self.horizontalLayout_3.addWidget(self.varredura_button)
 
+        self.horizontalLayoutWidget_4 = QtGui.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(650, 20, 141, 51))
+        self.horizontalLayoutWidget_4.setObjectName(_fromUtf8("horizontalLayoutWidget_4"))
+        self.horizontalLayout_4 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_4)
+        self.horizontalLayout_4.setObjectName(_fromUtf8("horizontalLayout_4"))
+        self.close_button = QtGui.QPushButton(self.horizontalLayoutWidget_4)
+        self.close_button.setObjectName(_fromUtf8("close_button"))
+        self.horizontalLayout_4.addWidget(self.close_button)
+
         self.gridLayoutWidget = QtGui.QWidget(self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 90, 761, 481))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 160, 800, 481))
         self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))
         self.gridLayout = QtGui.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
@@ -93,6 +107,7 @@ class Ui_Tela(object):
 	
 
         self.retranslateUi(Tela)
+	#QtCore.QObject.connect(self.close_button, QtCore.SIGNAL(_fromUtf8("clicked()")).close)
         QtCore.QMetaObject.connectSlotsByName(Tela)
 
     def retranslateUi(self, Tela):
@@ -101,4 +116,5 @@ class Ui_Tela(object):
         self.filete_button.setText(_translate("Tela", "Teste Filete", None))
         self.concentrado_button.setText(_translate("Tela", "Teste Concentrado", None))
         self.varredura_button.setText(_translate("Tela", "Varredura", None))
+	self.close_button.setText(_translate("Tela", "Close", None))
 

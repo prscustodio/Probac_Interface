@@ -34,22 +34,26 @@ class StartQT4(QtGui.QMainWindow):
 			QtCore.QObject.connect(self.ui.varredura_button,QtCore.SIGNAL("clicked()"), self.file_dialog_varredura)
 			QtCore.QObject.connect(self.ui.filete_button,QtCore.SIGNAL("clicked()"), self.file_dialog_filete)
 			QtCore.QObject.connect(self.ui.concentrado_button,QtCore.SIGNAL("clicked()"), self.file_dialog_concentrado)
+			QtCore.QObject.connect(self.ui.close_button,QtCore.SIGNAL("clicked()"), self.close)
 
 			#definindo quadrados
 			self.colR= QtGui.QColor(255, 0, 0)
 			self.colB= QtGui.QColor(0, 0, 0)
 			self.colG= QtGui.QColor(0, 255, 0)
+			
+
 
 			self.square1 = QtGui.QFrame(self)
-			self.square1.setGeometry(150, 55, 20, 20)
+			self.square1.setGeometry(150, 125, 20, 20)
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 
 			self.square2 = QtGui.QFrame(self)
-			self.square2.setGeometry(420, 55, 20, 20)
+			self.square2.setGeometry(420, 125, 20, 20)
 			self.square2.setStyleSheet("QWidget { background-color: %s }" % self.colB.name())
 
 			self.square3 = QtGui.QFrame(self)
-			self.square3.setGeometry(680, 55, 20, 20)
+
+			self.square3.setGeometry(680, 125, 20, 20)
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 
 		def file_dialog_varredura(self):
