@@ -37,10 +37,12 @@ class Ui_Tela(object):
 
         Tela.setObjectName(_fromUtf8("Tela"))
         Tela.resize(800, 650)
-
+	Tela.setStyleSheet("Background-color:  rgb(255,255,255)")
         self.centralwidget = QtGui.QWidget(Tela)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         
+
+	
 	self.horizontalLayoutWidget = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 110, 141, 51))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
@@ -57,6 +59,13 @@ class Ui_Tela(object):
         self.filete_button.setObjectName(_fromUtf8("filete_button"))
         self.horizontalLayout.addWidget(self.filete_button)
 
+	#palette=self.filete_button.palete()
+	#role = self.filete_button.backgroundRole()
+	#palette.setColor(role,Qcolor('red'))
+	#filete_button.setPalette(palette)
+	#self.filete_button.setAutoFillBackground(True)
+	self.filete_button.setStyleSheet("Background-color:  rgb(0,155,255)")
+
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(250, 110, 161, 51))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
@@ -66,6 +75,8 @@ class Ui_Tela(object):
         self.concentrado_button.setObjectName(_fromUtf8("concentrado_button"))
         self.horizontalLayout_2.addWidget(self.concentrado_button)
 
+	self.concentrado_button.setStyleSheet("Background-color:  rgb(0,155,255)")
+
         self.horizontalLayoutWidget_3 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(540, 110, 141, 51))
         self.horizontalLayoutWidget_3.setObjectName(_fromUtf8("horizontalLayoutWidget_3"))
@@ -74,6 +85,8 @@ class Ui_Tela(object):
         self.varredura_button = QtGui.QPushButton(self.horizontalLayoutWidget_3)
         self.varredura_button.setObjectName(_fromUtf8("varredura_button"))
         self.horizontalLayout_3.addWidget(self.varredura_button)
+	
+	self.varredura_button.setStyleSheet("Background-color:  rgb(0,155,255)")
 
         self.horizontalLayoutWidget_4 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(650, 20, 141, 51))
@@ -83,6 +96,7 @@ class Ui_Tela(object):
         self.close_button = QtGui.QPushButton(self.horizontalLayoutWidget_4)
         self.close_button.setObjectName(_fromUtf8("close_button"))
         self.horizontalLayout_4.addWidget(self.close_button)
+	self.close_button.setStyleSheet("Background-color:  rgb(0,155,255)")
 
         self.gridLayoutWidget = QtGui.QWidget(self.centralwidget)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 160, 800, 481))
@@ -92,6 +106,7 @@ class Ui_Tela(object):
         self.editor_window = QtGui.QTextEdit(self.gridLayoutWidget)
         self.editor_window.setObjectName(_fromUtf8("editor_window"))
         self.gridLayout.addWidget(self.editor_window, 0, 0, 1, 1)
+	self.editor_window.setStyleSheet("Background-color:  rgb(240,240,244)")
 
         Tela.setCentralWidget(self.centralwidget)
         

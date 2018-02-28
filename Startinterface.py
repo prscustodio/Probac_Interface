@@ -115,6 +115,7 @@ class StartQT4(QtGui.QMainWindow):
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			#time.sleep(0.5)
+			
 			file_filete = open('/home/pi/Desktop/Probac_Interface/testeConcentrado.txt','r')#open('/home/pi/Desktop/Probac_Interface/testeFilete.txt','r')
 			texto_filete=file_filete.read()
 			var_filete=ser.readline(2)
