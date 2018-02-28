@@ -34,37 +34,33 @@ class Ui_Tela(object):
     def setupUi(self, Tela):
 	#cor do quadrado de indicacao
 	
-
+	#Window setup
         Tela.setObjectName(_fromUtf8("Tela"))
         Tela.resize(800, 650)
 	Tela.setStyleSheet("Background-color:  rgb(255,255,255)")
         self.centralwidget = QtGui.QWidget(Tela)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
-        
-
 	
-	self.horizontalLayoutWidget = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 110, 141, 51))
-        self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
-        self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-
+	#logo probac setup
 	pic = QtGui.QLabel(Tela)
 	pic.setGeometry(270, 10, 300, 100)
 	pic.setPixmap(QtGui.QPixmap("/home/pi/Desktop/Probac_Interface/LogoProbac.png"))
 	#pic.setScaledContents(100,100)
 
+	#grid filete setup
+	self.horizontalLayoutWidget = QtGui.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 110, 141, 51))
+        self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
+        self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+	
         self.filete_button = QtGui.QPushButton(self.horizontalLayoutWidget)
         self.filete_button.setEnabled(True)
         self.filete_button.setObjectName(_fromUtf8("filete_button"))
         self.horizontalLayout.addWidget(self.filete_button)
-
-	#palette=self.filete_button.palete()
-	#role = self.filete_button.backgroundRole()
-	#palette.setColor(role,Qcolor('red'))
-	#filete_button.setPalette(palette)
-	#self.filete_button.setAutoFillBackground(True)
 	self.filete_button.setStyleSheet("Background-color:  rgb(0,155,255)")
+
+	#setup grid e botao concentrado
 
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(250, 110, 161, 51))
@@ -76,6 +72,8 @@ class Ui_Tela(object):
         self.horizontalLayout_2.addWidget(self.concentrado_button)
 
 	self.concentrado_button.setStyleSheet("Background-color:  rgb(0,155,255)")
+	
+	#setup grid e botao varredura
 
         self.horizontalLayoutWidget_3 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(540, 110, 141, 51))
@@ -88,6 +86,8 @@ class Ui_Tela(object):
 	
 	self.varredura_button.setStyleSheet("Background-color:  rgb(0,155,255)")
 
+	#setup grid e botao close
+
         self.horizontalLayoutWidget_4 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(650, 20, 141, 51))
         self.horizontalLayoutWidget_4.setObjectName(_fromUtf8("horizontalLayoutWidget_4"))
@@ -97,6 +97,8 @@ class Ui_Tela(object):
         self.close_button.setObjectName(_fromUtf8("close_button"))
         self.horizontalLayout_4.addWidget(self.close_button)
 	self.close_button.setStyleSheet("Background-color:  rgb(0,155,255)")
+
+	#setup grid e botao editor window
 
         self.gridLayoutWidget = QtGui.QWidget(self.centralwidget)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 160, 800, 481))

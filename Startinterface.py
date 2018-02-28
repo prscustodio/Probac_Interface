@@ -40,8 +40,6 @@ class StartQT4(QtGui.QMainWindow):
 			self.colR= QtGui.QColor(255, 0, 0)
 			self.colB= QtGui.QColor(0, 0, 0)
 			self.colG= QtGui.QColor(0, 255, 0)
-			
-
 
 			self.square1 = QtGui.QFrame(self)
 			self.square1.setGeometry(150, 125, 20, 20)
@@ -52,10 +50,10 @@ class StartQT4(QtGui.QMainWindow):
 			self.square2.setStyleSheet("QWidget { background-color: %s }" % self.colB.name())
 
 			self.square3 = QtGui.QFrame(self)
-
 			self.square3.setGeometry(680, 125, 20, 20)
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 
+		#controle eventos botao varredura
 		def file_dialog_varredura(self):
 			fd = QtGui.QFileDialog(self)
 			dadoVarredura='v'
@@ -80,7 +78,8 @@ class StartQT4(QtGui.QMainWindow):
 				GPIO.output(18,GPIO.LOW)
 				time.sleep(1)	
 				GPIO.output(18,GPIO.HIGH)	
-		
+
+		#controle eventos botao concentrado
 		def file_dialog_concentrado(self):
 			fd = QtGui.QFileDialog(self)
 			dadoConcentrado = 'c'
@@ -106,6 +105,7 @@ class StartQT4(QtGui.QMainWindow):
 				time.sleep(1)
 				GPIO.output(18,GPIO.HIGH)
 
+		#controle eventos botao varredura
 		def file_dialog_filete(self):
 			fd = QtGui.QFileDialog(self)
 			dadoFilete='f'
@@ -114,8 +114,7 @@ class StartQT4(QtGui.QMainWindow):
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colR.name())
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
-			#time.sleep(0.5)
-			
+			#time.sleep(0.5)	
 			file_filete = open('/home/pi/Desktop/Probac_Interface/testeConcentrado.txt','r')#open('/home/pi/Desktop/Probac_Interface/testeFilete.txt','r')
 			texto_filete=file_filete.read()
 			var_filete=ser.readline(2)
