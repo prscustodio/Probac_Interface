@@ -29,12 +29,13 @@ class StartQT4(QtGui.QMainWindow):
 			QtGui.QWidget.__init__(self, parent)
 			self.ui = Ui_Tela()
 			self.ui.setupUi(self)
-
+			
 	# here we connect signals with our slots
 			QtCore.QObject.connect(self.ui.varredura_button,QtCore.SIGNAL("clicked()"), self.file_dialog_varredura)
 			QtCore.QObject.connect(self.ui.filete_button,QtCore.SIGNAL("clicked()"), self.file_dialog_filete)
 			QtCore.QObject.connect(self.ui.concentrado_button,QtCore.SIGNAL("clicked()"), self.file_dialog_concentrado)
 			QtCore.QObject.connect(self.ui.close_button,QtCore.SIGNAL("clicked()"), self.close)
+			QtCore.QObject.connect(self.ui.operacao_button,QtCore.SIGNAL("clicked()"), self.file_dialog_operacao)
 
 			#definindo quadrados
 			self.colR= QtGui.QColor(255, 0, 0)
@@ -52,6 +53,7 @@ class StartQT4(QtGui.QMainWindow):
 			self.square3 = QtGui.QFrame(self)
 			self.square3.setGeometry(680, 125, 20, 20)
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
+			#print self.ui.opcoes1.currentText()
 
 		#controle eventos botao varredura
 		def file_dialog_varredura(self):
@@ -132,6 +134,16 @@ class StartQT4(QtGui.QMainWindow):
 				GPIO.output(18,GPIO.LOW)
 				time.sleep(1)
 				GPIO.output(18,GPIO.HIGH)
+		
+		def file_dialog_operacao(self):
+			fd = QtGui.QFileDialog(self)
+			sensor1=self.ui.opcoes1.currentText()
+			sensor2=self.ui.opcoes2.currentText()
+			sensor3=self.ui.opcoes3.currentText()
+			sensor4=self.ui.opcoes4.currentText()
+			sensor5=self.ui.opcoes5.currentText()
+			print sensor1
+			
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
