@@ -59,11 +59,11 @@ class StartQT4(QtGui.QMainWindow):
 		def file_dialog_varredura(self):
 			fd = QtGui.QFileDialog(self)
 			dadoVarredura='v'
-			ser.write(dadoVarredura)
-			print dadoVarredura
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
-			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colR.name())
+			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
+			ser.write(dadoVarredura)
+			print dadoVarredura
 			file_varredura = open('/home/pi/Desktop/Probac_Interface/varredura.txt','r')
 			#time.sleep(0.5)
 			varVarredura=ser.readline(2)
@@ -90,7 +90,7 @@ class StartQT4(QtGui.QMainWindow):
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colR.name())
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
-			file_concentrado = open('/home/pi/Desktop/Probac_Interface/testeFilete.txt','r')#open('/home/pi/Desktop/Probac_Interface/testeConcentrado.txt','r')
+			file_concentrado = open('/home/pi/Desktop/Probac_Interface/testeConcentrado.txt','r')
 			#time.sleep(0.5)
 			varConcentrado=ser.readline(2)
 			print(varConcentrado)
@@ -113,12 +113,13 @@ class StartQT4(QtGui.QMainWindow):
 			dadoFilete='f'
 			ser.write(dadoFilete)
 			print(dadoFilete)
-			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colR.name())
+			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			#time.sleep(0.5)	
-			file_filete = open('/home/pi/Desktop/Probac_Interface/testeConcentrado.txt','r')#open('/home/pi/Desktop/Probac_Interface/testeFilete.txt','r')
+			file_filete = open('/home/pi/Desktop/Probac_Interface/testeFilete.txt','r')
 			texto_filete=file_filete.read()
+			#print(texto_filete)
 			var_filete=ser.readline(2)
 			print(var_filete)
 			if(var_filete==ra):
@@ -126,8 +127,6 @@ class StartQT4(QtGui.QMainWindow):
 				self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colG.name())
 				self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 				self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
-				texto_filete=file_filete.readline()
-				print texto_filete
 				self.ui.editor_window.setText(texto_filete) 
 				lcdi2c.lcd_clear()
 				lcdi2c.lcd_display_string(texto_filete, 1,1)
@@ -143,7 +142,10 @@ class StartQT4(QtGui.QMainWindow):
 			sensor4=self.ui.opcoes4.currentText()
 			sensor5=self.ui.opcoes5.currentText()
 			print sensor1
-			
+			print sensor2
+			print sensor3
+			print sensor4
+			print sensor5			
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)

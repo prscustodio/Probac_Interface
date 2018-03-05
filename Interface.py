@@ -36,7 +36,7 @@ class Ui_Tela(object):
 	
 	#Window setup
         Tela.setObjectName(_fromUtf8("Tela"))
-        Tela.resize(1000, 700)
+        Tela.resize(1030, 700)
 	Tela.setStyleSheet("Background-color:  rgb(255,255,255)")
         self.centralwidget = QtGui.QWidget(Tela)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
@@ -61,7 +61,6 @@ class Ui_Tela(object):
 	self.filete_button.setStyleSheet("Background-color:  rgb(0,155,255)")
 
 	#setup grid e botao concentrado
-
         self.horizontalLayoutWidget_2 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(250, 110, 161, 51))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
@@ -74,7 +73,6 @@ class Ui_Tela(object):
 	self.concentrado_button.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
 	#setup grid e botao varredura
-
         self.horizontalLayoutWidget_3 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(540, 110, 141, 51))
         self.horizontalLayoutWidget_3.setObjectName(_fromUtf8("horizontalLayoutWidget_3"))
@@ -87,7 +85,6 @@ class Ui_Tela(object):
 	self.varredura_button.setStyleSheet("Background-color:  rgb(0,155,255)")
 
 	#setup grid e botao close
-
         self.horizontalLayoutWidget_4 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(850, 20, 141, 51))
         self.horizontalLayoutWidget_4.setObjectName(_fromUtf8("horizontalLayoutWidget_4"))
@@ -250,12 +247,6 @@ class Ui_Tela(object):
 	#QtCore.QObject.connect(self.close_button, QtCore.SIGNAL(_fromUtf8("clicked()")).close)
         QtCore.QMetaObject.connectSlotsByName(Tela)
 
-  # def selectionchange(self, i):
-        
-        #print ("itens in the list are:")
-	#for count in range (self.opcoes1.count()):
-	#	print self.opcoes1.itenText(count)
-	#print ("current index",i,"selection changed",self.opcoes1.currentText())
 
     def retranslateUi(self, Tela):
 

@@ -26,7 +26,7 @@ if(Serial.available())
     }
     cont=0;
     //Serial.write(" ");
-    Serial.println("ra");
+    Serial.write("ra");
     
   }
   if (dado == ('c'))
@@ -39,7 +39,7 @@ if(Serial.available())
     delay(500);
     }
     cont=0;
-    Serial.println("rb");
+    Serial.write("rb");
   }
   if (dado == ('v'))
   {
@@ -51,7 +51,7 @@ if(Serial.available())
     delay(500);
     }
     cont=0;
-    Serial.println("rc");
+    Serial.write("rc");
   }
   
    
