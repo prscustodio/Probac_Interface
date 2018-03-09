@@ -141,6 +141,7 @@ class StartQT4(QtGui.QMainWindow):
 			sensor3=self.ui.opcoes3.currentText()
 			sensor4=self.ui.opcoes4.currentText()
 			sensor5=self.ui.opcoes5.currentText()
+			endereco=self.ui.opcoes6.currentText()
 			print sensor1
 			print sensor2
 			print sensor3

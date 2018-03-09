@@ -97,7 +97,7 @@ class Ui_Tela(object):
 	
 	#definindo botao operacao
 	self.horizontalLayoutWidget_5 = QtGui.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(850, 140, 141, 51))
+        self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(830, 140, 170, 51))
         self.horizontalLayoutWidget_5.setObjectName(_fromUtf8("horizontalLayoutWidget_5"))
         self.horizontalLayout_5 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_5)
         self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
@@ -221,6 +221,29 @@ class Ui_Tela(object):
         self.label5.setObjectName(_fromUtf8("Opcção 5"))
 	#self.label1.setStyleSheet("Background-color:  rgb(0,155,255)")
 
+	#definindo Qbox Opcoes Endereço
+	self.horizontalLayoutWidget_17 = QtGui.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_17.setGeometry(QtCore.QRect(900, 550, 141,51))
+        self.horizontalLayoutWidget_17.setObjectName(_fromUtf8("horizontalLayoutWidget_17"))
+        self.horizontalLayout_17 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_17)
+        self.horizontalLayout_17.setObjectName(_fromUtf8("horizontalLayout_17"))
+        self.opcoes6 = QtGui.QComboBox(self.horizontalLayoutWidget_17)
+        self.opcoes6.setObjectName(_fromUtf8("opcoes6"))
+        self.opcoes6.addItem(_fromUtf8("OP-1"))
+        self.opcoes6.addItem(_fromUtf8("OP-2"))
+	self.opcoes6.setStyleSheet("Background-color:  rgb(0,155,255)")
+	
+	#Add Label Endereco
+	self.horizontalLayoutWidget_18 = QtGui.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_18.setGeometry(QtCore.QRect(825, 550, 65,51))
+        self.horizontalLayoutWidget_18.setObjectName(_fromUtf8("horizontalLayoutWidget_18"))
+        self.horizontalLayout_18 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_18)
+        self.horizontalLayout_18.setObjectName(_fromUtf8("horizontalLayout_18"))
+        self.label6 = QtGui.QLabel(self.horizontalLayoutWidget_18)
+	#self.label1 = QtGui.QLabel(self.centralwidget)
+        self.label6.setObjectName(_fromUtf8("Opcção 6"))
+	#self.label1.setStyleSheet("Background-color:  rgb(0,155,255)")
+
 	#setup grid e botao editor window
         self.gridLayoutWidget = QtGui.QWidget(self.centralwidget)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 160, 800, 481))
@@ -255,9 +278,10 @@ class Ui_Tela(object):
         self.concentrado_button.setText(_translate("Tela", "Teste Concentrado", None))
         self.varredura_button.setText(_translate("Tela", "Varredura", None))
 	self.close_button.setText(_translate("Tela", "Close", None))
-	self.operacao_button.setText(_translate("Tela", "Operação", None))
+	self.operacao_button.setText(_translate("Tela", "Atualizar Operação", None))
 	self.label1.setText(_translate("Tela", "Sensor 1:", None))
 	self.label2.setText(_translate("Tela", "Sensor 2:", None))
 	self.label3.setText(_translate("Tela", "Sensor 3:", None))
 	self.label4.setText(_translate("Tela", "Sensor 4:", None))
 	self.label5.setText(_translate("Tela", "Sensor 5:", None))
+	self.label6.setText(_translate("Tela", "Endereço:", None))
