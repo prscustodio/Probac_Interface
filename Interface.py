@@ -106,7 +106,7 @@ class Ui_Tela(object):
         self.horizontalLayout_5.addWidget(self.operacao_button)
 	self.operacao_button.setStyleSheet("Background-color:  rgb(0,155,255)")
 
-	#definindo Qbox Opcoes sensor 1
+	#definindo Qbox Opcoes endereços
 	self.horizontalLayoutWidget_6 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_6.setGeometry(QtCore.QRect(900, 200, 141,51))
         self.horizontalLayoutWidget_6.setObjectName(_fromUtf8("horizontalLayoutWidget_6"))
@@ -114,11 +114,12 @@ class Ui_Tela(object):
         self.horizontalLayout_6.setObjectName(_fromUtf8("horizontalLayout_6"))
         self.opcoes1 = QtGui.QComboBox(self.horizontalLayoutWidget_6)
         self.opcoes1.setObjectName(_fromUtf8("opcoes1"))
-        self.opcoes1.addItem(_fromUtf8("OP-1"))
-        self.opcoes1.addItem(_fromUtf8("OP-2"))
+        self.opcoes1.addItem(_fromUtf8("None"))
+        self.opcoes1.addItem(_fromUtf8("F1"))
+        self.opcoes1.addItem(_fromUtf8("F2"))
 	self.opcoes1.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
-	#Add Label sensor 1
+	#Add Label endereços
 	self.horizontalLayoutWidget_7 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_7.setGeometry(QtCore.QRect(825, 200, 65,51))
         self.horizontalLayoutWidget_7.setObjectName(_fromUtf8("horizontalLayoutWidget_7"))
@@ -129,7 +130,7 @@ class Ui_Tela(object):
         self.label1.setObjectName(_fromUtf8("Opcção 1"))
 	#self.label1.setStyleSheet("Background-color:  rgb(0,155,255)")
 
-	#definindo Qbox Opcoes sensor 2
+	#definindo Qbox Opcoes sensor 1
 	self.horizontalLayoutWidget_8 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_8.setGeometry(QtCore.QRect(900, 270, 141,51))
         self.horizontalLayoutWidget_8.setObjectName(_fromUtf8("horizontalLayoutWidget_8"))
@@ -137,11 +138,14 @@ class Ui_Tela(object):
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.opcoes2 = QtGui.QComboBox(self.horizontalLayoutWidget_8)
         self.opcoes2.setObjectName(_fromUtf8("opcoes2"))
-        self.opcoes2.addItem(_fromUtf8("OP-1"))
-        self.opcoes2.addItem(_fromUtf8("OP-2"))
+        self.opcoes2.addItem(_fromUtf8("None"))
+        self.opcoes2.addItem(_fromUtf8("Start"))
+        self.opcoes2.addItem(_fromUtf8("Stop"))
+        self.opcoes2.addItem(_fromUtf8("Pause"))
+        self.opcoes2.addItem(_fromUtf8("Status"))
 	self.opcoes2.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
-	#Add Label sensor 2
+	#Add Label sensor 1
 	self.horizontalLayoutWidget_9 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_9.setGeometry(QtCore.QRect(825, 270, 65,51))
         self.horizontalLayoutWidget_9.setObjectName(_fromUtf8("horizontalLayoutWidget_9"))
@@ -152,7 +156,7 @@ class Ui_Tela(object):
         self.label2.setObjectName(_fromUtf8("Opcção 2"))
 	#self.label1.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
-	#definindo Qbox Opcoes sensor 3
+	#definindo Qbox Opcoes sensor 2
 	self.horizontalLayoutWidget_10 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_10.setGeometry(QtCore.QRect(900, 340, 141,51))
         self.horizontalLayoutWidget_10.setObjectName(_fromUtf8("horizontalLayoutWidget_10"))
@@ -160,11 +164,14 @@ class Ui_Tela(object):
         self.horizontalLayout_10.setObjectName(_fromUtf8("horizontalLayout_10"))
         self.opcoes3 = QtGui.QComboBox(self.horizontalLayoutWidget_10)
         self.opcoes3.setObjectName(_fromUtf8("opcoes3"))
-        self.opcoes3.addItem(_fromUtf8("OP-1"))
-        self.opcoes3.addItem(_fromUtf8("OP-2"))
+        self.opcoes3.addItem(_fromUtf8("None"))
+        self.opcoes3.addItem(_fromUtf8("Start"))
+        self.opcoes3.addItem(_fromUtf8("Stop"))
+        self.opcoes3.addItem(_fromUtf8("Pause"))
+        self.opcoes3.addItem(_fromUtf8("Status"))
 	self.opcoes3.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
-	#Add Label sensor 3
+	#Add Label sensor 2
 	self.horizontalLayoutWidget_11 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_11.setGeometry(QtCore.QRect(825, 340, 65,51))
         self.horizontalLayoutWidget_11.setObjectName(_fromUtf8("horizontalLayoutWidget_11"))
@@ -175,7 +182,7 @@ class Ui_Tela(object):
         self.label3.setObjectName(_fromUtf8("Opcção 3"))
 	#self.label1.setStyleSheet("Background-color:  rgb(0,155,255)")
 
-	#definindo Qbox Opcoes sensor 4
+	#definindo Qbox Opcoes sensor 3
 	self.horizontalLayoutWidget_12 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_12.setGeometry(QtCore.QRect(900, 410, 141,51))
         self.horizontalLayoutWidget_12.setObjectName(_fromUtf8("horizontalLayoutWidget_12"))
@@ -183,11 +190,14 @@ class Ui_Tela(object):
         self.horizontalLayout_12.setObjectName(_fromUtf8("horizontalLayout_12"))
         self.opcoes4 = QtGui.QComboBox(self.horizontalLayoutWidget_12)
         self.opcoes4.setObjectName(_fromUtf8("opcoes4"))
-        self.opcoes4.addItem(_fromUtf8("OP-1"))
-        self.opcoes4.addItem(_fromUtf8("OP-2"))
+        self.opcoes4.addItem(_fromUtf8("None"))
+        self.opcoes4.addItem(_fromUtf8("Start"))
+        self.opcoes4.addItem(_fromUtf8("Stop"))
+        self.opcoes4.addItem(_fromUtf8("Pause"))
+        self.opcoes4.addItem(_fromUtf8("Status"))
 	self.opcoes4.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
-	#Add Label sensor 4
+	#Add Label sensor 3
 	self.horizontalLayoutWidget_13 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_13.setGeometry(QtCore.QRect(825, 410, 65,51))
         self.horizontalLayoutWidget_13.setObjectName(_fromUtf8("horizontalLayoutWidget_13"))
@@ -198,7 +208,7 @@ class Ui_Tela(object):
         self.label4.setObjectName(_fromUtf8("Opcção 4"))
 	#self.label1.setStyleSheet("Background-color:  rgb(0,155,255)")
 
-	#definindo Qbox Opcoes sensor 5
+	#definindo Qbox Opcoes sensor 4
 	self.horizontalLayoutWidget_14 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_14.setGeometry(QtCore.QRect(900, 480, 141,51))
         self.horizontalLayoutWidget_14.setObjectName(_fromUtf8("horizontalLayoutWidget_14"))
@@ -206,11 +216,14 @@ class Ui_Tela(object):
         self.horizontalLayout_14.setObjectName(_fromUtf8("horizontalLayout_14"))
         self.opcoes5 = QtGui.QComboBox(self.horizontalLayoutWidget_14)
         self.opcoes5.setObjectName(_fromUtf8("opcoes5"))
-        self.opcoes5.addItem(_fromUtf8("OP-1"))
-        self.opcoes5.addItem(_fromUtf8("OP-2"))
+        self.opcoes5.addItem(_fromUtf8("None"))
+        self.opcoes5.addItem(_fromUtf8("Start"))
+        self.opcoes5.addItem(_fromUtf8("Stop"))
+        self.opcoes5.addItem(_fromUtf8("Pause"))
+        self.opcoes5.addItem(_fromUtf8("Status"))
 	self.opcoes5.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
-	#Add Label sensor 5
+	#Add Label sensor 4
 	self.horizontalLayoutWidget_15 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_15.setGeometry(QtCore.QRect(825, 480, 65,51))
         self.horizontalLayoutWidget_15.setObjectName(_fromUtf8("horizontalLayoutWidget_15"))
@@ -221,7 +234,7 @@ class Ui_Tela(object):
         self.label5.setObjectName(_fromUtf8("Opcção 5"))
 	#self.label1.setStyleSheet("Background-color:  rgb(0,155,255)")
 
-	#definindo Qbox Opcoes Endereço
+	#definindo Qbox sensor5
 	self.horizontalLayoutWidget_17 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_17.setGeometry(QtCore.QRect(900, 550, 141,51))
         self.horizontalLayoutWidget_17.setObjectName(_fromUtf8("horizontalLayoutWidget_17"))
@@ -229,11 +242,14 @@ class Ui_Tela(object):
         self.horizontalLayout_17.setObjectName(_fromUtf8("horizontalLayout_17"))
         self.opcoes6 = QtGui.QComboBox(self.horizontalLayoutWidget_17)
         self.opcoes6.setObjectName(_fromUtf8("opcoes6"))
-        self.opcoes6.addItem(_fromUtf8("OP-1"))
-        self.opcoes6.addItem(_fromUtf8("OP-2"))
+        self.opcoes6.addItem(_fromUtf8("None"))
+        self.opcoes6.addItem(_fromUtf8("Start"))
+        self.opcoes6.addItem(_fromUtf8("Stop"))
+        self.opcoes6.addItem(_fromUtf8("Pause"))
+        self.opcoes6.addItem(_fromUtf8("Status"))
 	self.opcoes6.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
-	#Add Label Endereco
+	#Add Label sensor 5
 	self.horizontalLayoutWidget_18 = QtGui.QWidget(self.centralwidget)
         self.horizontalLayoutWidget_18.setGeometry(QtCore.QRect(825, 550, 65,51))
         self.horizontalLayoutWidget_18.setObjectName(_fromUtf8("horizontalLayoutWidget_18"))
@@ -279,9 +295,9 @@ class Ui_Tela(object):
         self.varredura_button.setText(_translate("Tela", "Varredura", None))
 	self.close_button.setText(_translate("Tela", "Close", None))
 	self.operacao_button.setText(_translate("Tela", "Atualizar Operação", None))
-	self.label1.setText(_translate("Tela", "Sensor 1:", None))
-	self.label2.setText(_translate("Tela", "Sensor 2:", None))
-	self.label3.setText(_translate("Tela", "Sensor 3:", None))
-	self.label4.setText(_translate("Tela", "Sensor 4:", None))
-	self.label5.setText(_translate("Tela", "Sensor 5:", None))
-	self.label6.setText(_translate("Tela", "Endereço:", None))
+	self.label1.setText(_translate("Tela", "Endereço :", None))
+	self.label2.setText(_translate("Tela", "Sensor 1:", None))
+	self.label3.setText(_translate("Tela", "Sensor 2:", None))
+	self.label4.setText(_translate("Tela", "Sensor 3:", None))
+	self.label5.setText(_translate("Tela", "Sensor 4:", None))
+	self.label6.setText(_translate("Tela", "Sensor 5:", None))

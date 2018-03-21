@@ -5,7 +5,7 @@ from Interface import Ui_Tela
 import serial
 import RPi.GPIO as GPIO
 import time
-import I2C_LCD_driver
+#import I2C_LCD_driver
 import socket
 import fcntl
 import struct
@@ -14,7 +14,7 @@ ra='ra'
 rb='rb'
 rc='rc'
 
-lcdi2c = I2C_LCD_driver.lcd()
+#lcdi2c = I2C_LCD_driver.lcd()
 
 GPIO.setmode(GPIO.BCM)
 #GPIO.setwarnigs(False)
@@ -75,8 +75,8 @@ class StartQT4(QtGui.QMainWindow):
 				self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colG.name())
 				texto_varredura=file_varredura.read()
 				self.ui.editor_window.setText(texto_varredura)
-				lcdi2c.lcd_clear()
-				lcdi2c.lcd_display_string(texto_varredura, 1,1)
+				#lcdi2c.lcd_clear()
+				#lcdi2c.lcd_display_string(texto_varredura, 1,1)
 				GPIO.output(18,GPIO.LOW)
 				time.sleep(1)	
 				GPIO.output(18,GPIO.HIGH)	
@@ -101,8 +101,8 @@ class StartQT4(QtGui.QMainWindow):
 				self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 				texto_concentrado=file_concentrado.read()
 				self.ui.editor_window.setText(texto_concentrado)
-				lcdi2c.lcd_clear()
-				lcdi2c.lcd_display_string(texto_concentrado, 1,1)
+				#lcdi2c.lcd_clear()
+				#lcdi2c.lcd_display_string(texto_concentrado, 1,1)
 				GPIO.output(18,GPIO.LOW)
 				time.sleep(1)
 				GPIO.output(18,GPIO.HIGH)
@@ -128,26 +128,81 @@ class StartQT4(QtGui.QMainWindow):
 				self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 				self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 				self.ui.editor_window.setText(texto_filete) 
-				lcdi2c.lcd_clear()
-				lcdi2c.lcd_display_string(texto_filete, 1,1)
+				#lcdi2c.lcd_clear()
+				#lcdi2c.lcd_display_string(texto_filete, 1,1)
 				GPIO.output(18,GPIO.LOW)
 				time.sleep(1)
 				GPIO.output(18,GPIO.HIGH)
 		
 		def file_dialog_operacao(self):
 			fd = QtGui.QFileDialog(self)
-			sensor1=self.ui.opcoes1.currentText()
-			sensor2=self.ui.opcoes2.currentText()
-			sensor3=self.ui.opcoes3.currentText()
-			sensor4=self.ui.opcoes4.currentText()
-			sensor5=self.ui.opcoes5.currentText()
-			endereco=self.ui.opcoes6.currentText()
-			print sensor1
-			print sensor2
-			print sensor3
-			print sensor4
-			print sensor5			
-
+			endereco=self.ui.opcoes1.currentText()
+			if (endereco=='None'):
+				 endereco='n'
+			if (endereco=='F1'):
+			 	endereco=1
+			if (endereco=='F2'):
+			 	endereco=2
+			sensor1=self.ui.opcoes2.currentText()
+			if (sensor1=='None'):
+				 sensor1='n'
+			if (sensor1=='Pause'):
+			 	sensor1='B'
+			if (sensor1=='Start'):
+				 sensor1=5
+			if (sensor1=='Status'):
+			 	sensor1='0'
+			if (sensor1=='Stop'):
+				 sensor1='3'
+			sensor2=self.ui.opcoes3.currentText()
+			if (sensor2=='None'):
+				 sensor2='n'
+			if (sensor2=='Pause'):
+			 	sensor2='B'
+			if (sensor2=='Start'):
+			 	sensor2=5
+			if (sensor2=='Status'):
+			 	sensor2=0
+			if (sensor2=='Stop'):
+			 	sensor2=3
+			sensor3=self.ui.opcoes4.currentText()
+			if (sensor3=='None'):
+			 	sensor3='n'
+			if (sensor3=='Pause'):
+			 	sensor3='B'
+			if (sensor3=='Start'):
+			 	sensor3=5
+			if (sensor3=='Status'):
+			 	sensor3=0
+			if (sensor3=='Stop'):
+			 	sensor3=3
+			sensor4=self.ui.opcoes5.currentText()
+			if (sensor4=='None'):
+			 	sensor4='n'
+			if (sensor4=='Pause'):
+			 	sensor4='B'
+			if (sensor4=='Start'):
+			 	sensor4=5
+			if (sensor4=='Status'):
+			 	sensor4=0
+			if (sensor4=='Stop'):
+			 	sensor4=3
+			sensor5=self.ui.opcoes6.currentText()
+			if (sensor5=='None'):
+				 sensor5='n'
+			if (sensor5=='Pause'):
+			 	sensor5='B'
+			if (sensor5=='Start'):
+				 sensor5=5
+			if (sensor5=='Status'):
+				 sensor5=0
+			if (sensor5=='Stop'):
+				 sensor5=3
+	
+			PackSensor = ['f',endereco,'s',1,sensor1,'s',2,sensor2,'s',3,sensor3,'s',4,sensor4,'s',5,sensor5]
+			print PackSensor
+			ser.write(PackSensor)
+			
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     myapp = StartQT4()
