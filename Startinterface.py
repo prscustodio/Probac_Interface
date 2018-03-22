@@ -21,7 +21,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(18,GPIO.OUT)
 GPIO.output(18,GPIO.HIGH)
 
-ser =serial.Serial('/dev/ttyACM0',9600)
+ser =serial.Serial('/dev/ttyACM1',9600)
 
 class StartQT4(QtGui.QMainWindow): 
 	
@@ -59,9 +59,11 @@ class StartQT4(QtGui.QMainWindow):
 		def file_dialog_varredura(self):
 			fd = QtGui.QFileDialog(self)
 			dadoVarredura='v'
+			bytes='a'
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square2.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
 			self.square3.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
+			ser.write(bytes)
 			ser.write(dadoVarredura)
 			print dadoVarredura
 			file_varredura = open('/home/pi/Desktop/Probac_Interface/varredura.txt','r')
@@ -85,6 +87,8 @@ class StartQT4(QtGui.QMainWindow):
 		def file_dialog_concentrado(self):
 			fd = QtGui.QFileDialog(self)
 			dadoConcentrado = 'c'
+			bytes='a'
+			ser.write(bytes)
 			ser.write(dadoConcentrado)
 			print dadoConcentrado
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
@@ -111,6 +115,8 @@ class StartQT4(QtGui.QMainWindow):
 		def file_dialog_filete(self):
 			fd = QtGui.QFileDialog(self)
 			dadoFilete='f'
+			bytes='a'
+			ser.write(bytes)
 			ser.write(dadoFilete)
 			print(dadoFilete)
 			self.square1.setStyleSheet("QWidget { background-color: %s }" %  self.colB.name())
@@ -136,72 +142,85 @@ class StartQT4(QtGui.QMainWindow):
 		
 		def file_dialog_operacao(self):
 			fd = QtGui.QFileDialog(self)
+
 			endereco=self.ui.opcoes1.currentText()
 			if (endereco=='None'):
 				 endereco='n'
 			if (endereco=='F1'):
-			 	endereco=1
+			 	endereco=0x01
 			if (endereco=='F2'):
 			 	endereco=2
+
 			sensor1=self.ui.opcoes2.currentText()
 			if (sensor1=='None'):
 				 sensor1='n'
 			if (sensor1=='Pause'):
 			 	sensor1='B'
 			if (sensor1=='Start'):
-				 sensor1=5
+				 sensor1=0x05
 			if (sensor1=='Status'):
-			 	sensor1='0'
+			 	sensor1=0x00
 			if (sensor1=='Stop'):
-				 sensor1='3'
+				 sensor1=0x03
+
 			sensor2=self.ui.opcoes3.currentText()
 			if (sensor2=='None'):
 				 sensor2='n'
 			if (sensor2=='Pause'):
 			 	sensor2='B'
 			if (sensor2=='Start'):
-			 	sensor2=5
+			 	sensor2=0x05
 			if (sensor2=='Status'):
-			 	sensor2=0
+			 	sensor2=0x00
 			if (sensor2=='Stop'):
-			 	sensor2=3
+			 	sensor2=0x03
+
 			sensor3=self.ui.opcoes4.currentText()
 			if (sensor3=='None'):
 			 	sensor3='n'
 			if (sensor3=='Pause'):
 			 	sensor3='B'
 			if (sensor3=='Start'):
-			 	sensor3=5
+			 	sensor3=0x05
 			if (sensor3=='Status'):
-			 	sensor3=0
+			 	sensor3=0x00
 			if (sensor3=='Stop'):
-			 	sensor3=3
+			 	sensor3=0x03
+
 			sensor4=self.ui.opcoes5.currentText()
 			if (sensor4=='None'):
 			 	sensor4='n'
 			if (sensor4=='Pause'):
 			 	sensor4='B'
 			if (sensor4=='Start'):
-			 	sensor4=5
+			 	sensor4=0x05
 			if (sensor4=='Status'):
-			 	sensor4=0
+			 	sensor4=0x00
 			if (sensor4=='Stop'):
-			 	sensor4=3
+			 	sensor4=0x03
+
 			sensor5=self.ui.opcoes6.currentText()
 			if (sensor5=='None'):
 				 sensor5='n'
 			if (sensor5=='Pause'):
 			 	sensor5='B'
 			if (sensor5=='Start'):
-				 sensor5=5
+				 sensor5=0x05
 			if (sensor5=='Status'):
-				 sensor5=0
+				 sensor5=0x00
 			if (sensor5=='Stop'):
-				 sensor5=3
+				 sensor5=0x03
 	
-			PackSensor = ['f',endereco,'s',1,sensor1,'s',2,sensor2,'s',3,sensor3,'s',4,sensor4,'s',5,sensor5]
+			bytes='b'
+			PackSensor = ['A','F',endereco,'S',1,sensor1,'S',2,sensor2,'S',3,sensor3,'S',4,sensor4,'S',5,sensor5]
 			print PackSensor
+			ser.write(bytes)
 			ser.write(PackSensor)
+			var_filete=ser.readline(2)
+			print(var_filete)
+			if(var_filete=="rd"):
+				print ('ok')	
+
 			
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
