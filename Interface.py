@@ -143,6 +143,7 @@ class Ui_Tela(object):
         self.opcoes2.addItem(_fromUtf8("Stop"))
         self.opcoes2.addItem(_fromUtf8("Pause"))
         self.opcoes2.addItem(_fromUtf8("Status"))
+        self.opcoes2.addItem(_fromUtf8("Leitura"))
 	self.opcoes2.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
 	#Add Label sensor 1
@@ -169,6 +170,7 @@ class Ui_Tela(object):
         self.opcoes3.addItem(_fromUtf8("Stop"))
         self.opcoes3.addItem(_fromUtf8("Pause"))
         self.opcoes3.addItem(_fromUtf8("Status"))
+        self.opcoes3.addItem(_fromUtf8("Leitura"))
 	self.opcoes3.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
 	#Add Label sensor 2
@@ -195,6 +197,7 @@ class Ui_Tela(object):
         self.opcoes4.addItem(_fromUtf8("Stop"))
         self.opcoes4.addItem(_fromUtf8("Pause"))
         self.opcoes4.addItem(_fromUtf8("Status"))
+        self.opcoes4.addItem(_fromUtf8("Leitura"))
 	self.opcoes4.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
 	#Add Label sensor 3
@@ -221,6 +224,7 @@ class Ui_Tela(object):
         self.opcoes5.addItem(_fromUtf8("Stop"))
         self.opcoes5.addItem(_fromUtf8("Pause"))
         self.opcoes5.addItem(_fromUtf8("Status"))
+        self.opcoes5.addItem(_fromUtf8("Leitura"))
 	self.opcoes5.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
 	#Add Label sensor 4
@@ -247,6 +251,7 @@ class Ui_Tela(object):
         self.opcoes6.addItem(_fromUtf8("Stop"))
         self.opcoes6.addItem(_fromUtf8("Pause"))
         self.opcoes6.addItem(_fromUtf8("Status"))
+        self.opcoes6.addItem(_fromUtf8("Leitura"))
 	self.opcoes6.setStyleSheet("Background-color:  rgb(0,155,255)")
 	
 	#Add Label sensor 5

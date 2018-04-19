@@ -39,7 +39,7 @@ float *pt;
 float FREQ_VALUE = 0;
 
 const int SLAVE_ADDRESS = F1; //Slave arduino ID
-char table[] = {0, 0, 0}; //the data will be transmited via table as to allow different data to be transfer.
+char table[] = {0, 0, 0, 0}; //the data will be transmited via table as to allow different data to be transfer.
 
 void RECEIVE_PACK(char address, char bytes)
 {
@@ -118,21 +118,34 @@ void RECEIVE_PACK(char address, char bytes)
         if (table[2] == 0)
         {
           //lcd.print("STS");
-          if (table[4] == 'N'); else //lcd.print("uso");else
-            if (table[4] == 'F'); //lcd.print("Des");
+          
+          if (table[4] == 'N') Serial.write("onn");else
+            if (table[4] == 'F'); Serial.write("off");
         } else
 
           if (table[2] == 12)
           {
             //lcd.print(" ");
-            //*pt = (float) &table[24];float x = *(float *)&vBuffer;
-            //FREQ_VALUE = *(float *) &table[24]
-            //Serial.println(table[24], HEX);
-            //Serial.println(table[25], HEX);
-            //Serial.println(table[26], HEX);
-            //Serial.println(table[27], HEX);
+//            *pt = (float) &table[24];float x = *(float *)&vBuffer;
+//            FREQ_VALUE = *(float *) &table[24]
+//            Serial.write(table[24], HEX);
+//            Serial.write(table[25], HEX);
+//            Serial.write(table[26], HEX);
+//            Serial.write(table[27], HEX);
             memcpy(&FREQ_VALUE, &table[4], 4);
-            //lcd.println(FREQ_VALUE);
+            byte *b = (byte *) &FREQ_VALUE;
+            Serial.println(FREQ_VALUE);
+            //int freq=(int)FREQ_VALUE;
+            //Serial.println(b[3]);
+            //Serial.write(b,4);
+            //Serial.write(b[1]);
+            //Serial.write(b[2]);
+            //Serial.write(b[3]);
+          for(int a=0;a<4;a++)
+          {
+            Serial.write(table[a]);
+          }
+          
           }
   }
 }
@@ -204,6 +217,8 @@ void PACK_TO_SEND( char address, char sensor, char command)
       PACK[5] = '!';                // STOP
       SEND_PACK(6);
       RECEIVE_PACK(address, 30);
+      
+      
       break;
 
     case TIME :  PACK[0] = 'P';                // START
@@ -216,6 +231,7 @@ void PACK_TO_SEND( char address, char sensor, char command)
       PACK[7] = '!';                // STOP
       SEND_PACK(8);
       RECEIVE_PACK(address, 8);
+      
       break;
   }
 
@@ -273,21 +289,21 @@ void loop()
 
     if (dado[0] == ('f'))
     {
-      PACK_TO_SEND(F1, S1, Start);
-      Serial.write("ra");
+//      PACK_TO_SEND(F1, S1, Start);
+        Serial.write("ra");
     }
 
     // comandos botao concentrado
     if (dado[0] == ('c'))
     {
-      PACK_TO_SEND(F1, S1, Stop);
+      //PACK_TO_SEND(F1, S1, Stop);
       Serial.write("rb");
     }
 
     //comando botao varredura
     if (dado[0] == ('v'))
     {
-      PACK_TO_SEND(F1, S1, STATUS);
+      //PACK_TO_SEND(F1, S1, STATUS);
       Serial.write("rc");
     }
     if (dado[0] == ('A'))
@@ -298,7 +314,7 @@ void loop()
       PACK_TO_SEND(dado[2], S3, dado[11]);
       PACK_TO_SEND(dado[2], S4, dado[14]);
       PACK_TO_SEND(dado[2], S5, dado[17]);
-      Serial.write("rd");
+      //Serial.write("rd");
     }
   }
 }

@@ -21,7 +21,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(18,GPIO.OUT)
 GPIO.output(18,GPIO.HIGH)
 
-ser =serial.Serial('/dev/ttyACM1',9600)
+ser =serial.Serial('/dev/ttyACM0',9600)
 
 class StartQT4(QtGui.QMainWindow): 
 	
@@ -162,6 +162,8 @@ class StartQT4(QtGui.QMainWindow):
 			 	sensor1=0x00
 			if (sensor1=='Stop'):
 				 sensor1=0x03
+			if (sensor1=='Leitura'):
+				 sensor1=12
 
 			sensor2=self.ui.opcoes3.currentText()
 			if (sensor2=='None'):
@@ -174,6 +176,8 @@ class StartQT4(QtGui.QMainWindow):
 			 	sensor2=0x00
 			if (sensor2=='Stop'):
 			 	sensor2=0x03
+			if (sensor2=='Leitura'):
+				 sensor2=12
 
 			sensor3=self.ui.opcoes4.currentText()
 			if (sensor3=='None'):
@@ -186,6 +190,8 @@ class StartQT4(QtGui.QMainWindow):
 			 	sensor3=0x00
 			if (sensor3=='Stop'):
 			 	sensor3=0x03
+			if (sensor3=='Leitura'):
+				 sensor3=12
 
 			sensor4=self.ui.opcoes5.currentText()
 			if (sensor4=='None'):
@@ -198,6 +204,8 @@ class StartQT4(QtGui.QMainWindow):
 			 	sensor4=0x00
 			if (sensor4=='Stop'):
 			 	sensor4=0x03
+			if (sensor4=='Leitura'):
+				 sensor4=12
 
 			sensor5=self.ui.opcoes6.currentText()
 			if (sensor5=='None'):
@@ -210,16 +218,26 @@ class StartQT4(QtGui.QMainWindow):
 				 sensor5=0x00
 			if (sensor5=='Stop'):
 				 sensor5=0x03
+			if (sensor5=='Leitura'):
+				 sensor5=0x0C
 	
 			bytes='b'
 			PackSensor = ['A','F',endereco,'S',1,sensor1,'S',2,sensor2,'S',3,sensor3,'S',4,sensor4,'S',5,sensor5]
 			print PackSensor
 			ser.write(bytes)
 			ser.write(PackSensor)
-			var_filete=ser.readline(2)
-			print(var_filete)
-			if(var_filete=="rd"):
-				print ('ok')	
+			if ((sensor1==0x00) or (sensor2==0x00) or (sensor3==0x00) or (sensor4==0x00) or (sensor5==0x00 )):
+				print ("entrou")
+				leitura_filete=ser.readline(3)	
+				self.ui.editor_window.setText(leitura_filete) 		
+			if ((sensor1==12) or (sensor2==12) or (sensor3==12) or (sensor4==12) or (sensor5==12 )):
+				print ("entrou")
+				leitura_filete=ser.readline()	
+				self.ui.editor_window.setText(leitura_filete) 	
+			#var_filete=ser.readline(2)
+			#print(var_filete)
+			#if(var_filete=="rd"):
+			#	print ('ok')	
 
 			
 if __name__ == "__main__":
