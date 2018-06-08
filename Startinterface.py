@@ -35,7 +35,7 @@ class StartQT4(QtGui.QMainWindow):
 			QtCore.QObject.connect(self.ui.filete_button,QtCore.SIGNAL("clicked()"), self.file_dialog_filete)
 			QtCore.QObject.connect(self.ui.concentrado_button,QtCore.SIGNAL("clicked()"), self.file_dialog_concentrado)
 			QtCore.QObject.connect(self.ui.close_button,QtCore.SIGNAL("clicked()"), self.close)
-			QtCore.QObject.connect(self.ui.operacao_button,QtCore.SIGNAL("clicked()"), self.file_dialog_operacao)
+			#QtCore.QObject.connect(self.ui.operacao_button,QtCore.SIGNAL("clicked()"), self.file_dialog_operacao)
 
 			#definindo quadrados
 			self.colR= QtGui.QColor(255, 0, 0)
@@ -140,7 +140,7 @@ class StartQT4(QtGui.QMainWindow):
 				time.sleep(1)
 				GPIO.output(18,GPIO.HIGH)
 		
-		def file_dialog_operacao(self):
+		'''def file_dialog_operacao(self):
 			fd = QtGui.QFileDialog(self)
 
 			endereco=self.ui.opcoes1.currentText()
@@ -237,7 +237,7 @@ class StartQT4(QtGui.QMainWindow):
 			#var_filete=ser.readline(2)
 			#print(var_filete)
 			#if(var_filete=="rd"):
-			#	print ('ok')	
+			#	print ('ok')'''	
 
 			
 if __name__ == "__main__":

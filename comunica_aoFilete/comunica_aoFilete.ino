@@ -141,7 +141,7 @@ void RECEIVE_PACK(char address, char bytes)
             //Serial.write(b[1]);
             //Serial.write(b[2]);
             //Serial.write(b[3]);
-          for(int a=0;a<4;a++)
+          for(int a=3;a<4;a++)
           {
             Serial.write(table[a]);
           }
