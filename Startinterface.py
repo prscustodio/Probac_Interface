@@ -31,11 +31,11 @@ class StartQT4(QtGui.QMainWindow):
 			self.ui.setupUi(self)
 			
 	# here we connect signals with our slots
-			QtCore.QObject.connect(self.ui.varredura_button,QtCore.SIGNAL("clicked()"), self.file_dialog_varredura)
+			#QtCore.QObject.connect(self.ui.varredura_L1button,QtCore.SIGNAL("clicked()"), self.file_dialog_varredura)
 			QtCore.QObject.connect(self.ui.filete_button,QtCore.SIGNAL("clicked()"), self.file_dialog_filete)
 			QtCore.QObject.connect(self.ui.concentrado_button,QtCore.SIGNAL("clicked()"), self.file_dialog_concentrado)
 			QtCore.QObject.connect(self.ui.close_button,QtCore.SIGNAL("clicked()"), self.close)
-			#QtCore.QObject.connect(self.ui.operacao_button,QtCore.SIGNAL("clicked()"), self.file_dialog_operacao)
+			QtCore.QObject.connect(self.ui.operacao_L1Button,QtCore.SIGNAL("clicked()"), self.file_dialog__L1_Testar)
 
 			#definindo quadrados
 			self.colR= QtGui.QColor(255, 0, 0)
@@ -140,10 +140,10 @@ class StartQT4(QtGui.QMainWindow):
 				time.sleep(1)
 				GPIO.output(18,GPIO.HIGH)
 		
-		'''def file_dialog_operacao(self):
+		def file_dialog__L1_Testar(self):
 			fd = QtGui.QFileDialog(self)
 
-			endereco=self.ui.opcoes1.currentText()
+			endereco=self.ui.opcoes_B1End.currentText()
 			if (endereco=='None'):
 				 endereco='n'
 			if (endereco=='F1'):
@@ -151,7 +151,7 @@ class StartQT4(QtGui.QMainWindow):
 			if (endereco=='F2'):
 			 	endereco=2
 
-			sensor1=self.ui.opcoes2.currentText()
+			sensor1=self.ui.opcoes_B1O.currentText()
 			if (sensor1=='None'):
 				 sensor1='n'
 			if (sensor1=='Pause'):
@@ -165,7 +165,7 @@ class StartQT4(QtGui.QMainWindow):
 			if (sensor1=='Leitura'):
 				 sensor1=12
 
-			sensor2=self.ui.opcoes3.currentText()
+			'''sensor2=self.ui.opcoes3.currentText()
 			if (sensor2=='None'):
 				 sensor2='n'
 			if (sensor2=='Pause'):
@@ -219,8 +219,11 @@ class StartQT4(QtGui.QMainWindow):
 			if (sensor5=='Stop'):
 				 sensor5=0x03
 			if (sensor5=='Leitura'):
-				 sensor5=0x0C
-	
+				 sensor5=0x0C'''
+			sensor2='n'
+			sensor3='n'
+			sensor4='n'
+			sensor5='n'
 			bytes='b'
 			PackSensor = ['A','F',endereco,'S',1,sensor1,'S',2,sensor2,'S',3,sensor3,'S',4,sensor4,'S',5,sensor5]
 			print PackSensor
@@ -237,7 +240,7 @@ class StartQT4(QtGui.QMainWindow):
 			#var_filete=ser.readline(2)
 			#print(var_filete)
 			#if(var_filete=="rd"):
-			#	print ('ok')'''	
+			#	print ('ok')
 
 			
 if __name__ == "__main__":

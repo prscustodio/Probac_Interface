@@ -38,7 +38,7 @@ char FREQ_PACK[10];
 float *pt;
 float FREQ_VALUE = 0;
 
-const int SLAVE_ADDRESS = F1; //Slave arduino ID
+const int SLAVE_ADDRESS   = F1; //Slave arduino ID
 char table[] = {0, 0, 0, 0}; //the data will be transmited via table as to allow different data to be transfer.
 
 void RECEIVE_PACK(char address, char bytes)
@@ -178,7 +178,7 @@ void PACK_TO_SEND( char address, char sensor, char command)
   switch (command)
 
   {
-    case Start :   PACK[0] = 'P';                // START
+    case 5 :   PACK[0] = 'P';                // START
       PACK[1] = address;            // SLAVE ADDRESS
       PACK[2] = command;            // COMMAND
       PACK[3] = sensor;             // SENSOR
@@ -240,8 +240,7 @@ void PACK_TO_SEND( char address, char sensor, char command)
 void setup()
 {
   // put your setup code here, to run once:
-  Serial.begin(9600);
-  Wire.begin();
+
   pinMode(13, OUTPUT);
   digitalWrite(13,LOW);
   //lcd.begin (16, 2);
@@ -249,72 +248,30 @@ void setup()
 
 void loop()
 {
+  Serial.begin(9600);
+  Wire.begin();
+  int cont=0;    
+  char dado;
+  int n; 
   // put your main code here, to run repeatedly:
-  if (Serial.available())
+  int avaibleBytes=Serial.available();
+  char pack[avaibleBytes];
+  Serial.println(avaibleBytes);
+  if (Serial.available()!=0)
+  { 
+  for(n = 0;n<avaibleBytes;n++)
   {
-    int  cont = 0;
-    int tamArray=0;
-    char tamArraySelect=0;
-    
-    tamArraySelect = Serial.read();
-    delay(500);
-    if(tamArraySelect == 'a')
-    {
-    tamArray=1;  
-    digitalWrite(13,LOW);
-    }
-    
-    if(tamArraySelect == 'b')
-    {
-    tamArray=18;  
-    
-    digitalWrite(13,HIGH);
-    }
-    
-    //Serial.print(tamArray);
-    char dado[tamArray];
-
-    for (cont = 0; cont < tamArray; cont += 1)
-  
-    {
-      dado[cont] = Serial.read();
-      digitalWrite(13,HIGH);
-      digitalWrite(13,LOW);
-      //delay(200);
-    }
-
-    //declarando variaveis de comunicacao com filete
-
-    //comando botao filete
-
-    if (dado[0] == ('f'))
-    {
-//      PACK_TO_SEND(F1, S1, Start);
-        Serial.write("ra");
-    }
-
-    // comandos botao concentrado
-    if (dado[0] == ('c'))
-    {
-      //PACK_TO_SEND(F1, S1, Stop);
-      Serial.write("rb");
-    }
-
-    //comando botao varredura
-    if (dado[0] == ('v'))
-    {
-      //PACK_TO_SEND(F1, S1, STATUS);
-      Serial.write("rc");
-    }
-    if (dado[0] == ('A'))
-    {
-      
-      PACK_TO_SEND(dado[2], S1, dado[5]);
-      PACK_TO_SEND(dado[2], S2, dado[8]);
-      PACK_TO_SEND(dado[2], S3, dado[11]);
-      PACK_TO_SEND(dado[2], S4, dado[14]);
-      PACK_TO_SEND(dado[2], S5, dado[17]);
-      //Serial.write("rd");
-    }
+    pack[n]=Serial.read();
+    //Serial.print(n);
   }
+
+  }
+    Serial.println(pack);
+    //Serial.end()
+    delay(1000);
+    if(n!=0)
+    {
+         
+    PACK_TO_SEND(pack[0],pack[1], pack[2]);
+    }
 }
